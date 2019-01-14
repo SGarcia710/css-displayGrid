@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funciones</title>
+  <style>
+    body{
+      font-family: Arial;
+    }
+    .container{
+      display: grid;
+      /* grid-template-columns: 200px 200px 200px; establezco 3 columnas de 200px */
+      /* grid-template-columns: 25% 200px 25%; */
+      /* grid-template-rows: 300px 300px; */
+      /* grid-template: filas / columnas; */
+      /* grid-template: 300px 100px 100px / 1fr 1fr 1fr; */
+      /* grid-template: 300px 100px 100px / repeat(4, 1fr); */
+      /* grid-template: 300px 100px 100px / repeat(4, minmax(200px,1fr)); */
+      grid-template: 300px 100px 100px / minmax(200px,1fr) 1fr 1fr 1fr;
+      /* grid-column-gap: 30px ;  */
+      /*espaciado entre columnas, es mejor usar esto a margin
+      debido a que margin lo que hara sera reducir los tamaños de los elementos, lo cual
+      puede causar problemas. */
+      /* grid-row-gap: 30px; */
+      /* grid-gap: filas columnas; */
+      grid-gap: 10px;
+      /* Nueva unidad de MEDIDAS: FRACCIONES
+      denominadas con fr.*/
+    }
+    .item {
+      background: lightblue;
+      padding: 10px;
+      border: 1px solid red; 
+      /* margin-right: 10px; */
+      /* margin-bottom: 10px; */
+    }
+    .item:nth-of-type(4){
+      background: blue;
+      overflow: auto;
+      /* display: subgrid; */
+      /* display: -ms-inline-grid; */
+      display: grid;
+      grid-template: 50px 50px 50px / 130px 130px 130px;
+    }
+    .item .item {
+      background: yellow;
+    }
+
+  </style>
+</head>
+<body>
+  <section class="container">
+    <!-- .item{contenido #$}*12 emmet: crear 12
+    divs con la clase item y un numero dinamico-->
+    <div class="item">contenido #1</div>
+    <div class="item">contenido #2</div>
+    <div class="item">contenido #3</div>
+    <div class="item">
+      <div class="item">subitem #1</div>
+      <div class="item">subitem #2</div>
+      <div class="item">subitem #3</div>
+      <div class="item">subitem #4</div>
+      <div class="item">subitem #5</div>
+    </div>
+    <div class="item">contenido #5</div>
+    <div class="item">contenido #6</div>
+    <div class="item">contenido #7</div>
+    <div class="item">contenido #8</div>
+    <div class="item">contenido #9</div>
+    <div class="item">contenido #10</div>
+    <div class="item">contenido #11</div>
+    <div class="item">contenido #12</div>
+  </section>
+</body>
+</html>
