@@ -1,0 +1,52 @@
+body{
+  margin: 0;
+  font-family: Arial;
+}
+.post{
+  cursor: pointer; /*Cada vez que senalemos ese post nos sale la manito */
+  position: relative;
+  display: block;
+}
+.post-list{
+  display: grid;
+  grid-template-columns: repeat(3,minmax(100px,293px)); /*minmax nos deja tener un ancho minimo de 100px y ancho maximo de 293px como instagram */
+  justify-content: center;
+  grid-gap: 28px;
+}
+.post-image{
+  margin: 0;
+}
+.post-image img{
+  max-width: 100%; /*Con esto le digo que tendra el mismo ancho que tiene el post. */
+  vertical-align: top;
+}
+.post-overlay{
+  background: rgba(0,0,0,.4);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+.post:hover .post-overlay{
+  display: flex;
+}
+.post-likes,
+.post-comments{
+  width: 80px;
+  margin: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block; /*display block o display inline-block para que el ancho funcione 
+  porque son un span que vinen con display inline por defecto */
+}
+@media screen and (max-width: 768px){
+  .post-list{
+    grid-gap: 3px;
+  }
+}
