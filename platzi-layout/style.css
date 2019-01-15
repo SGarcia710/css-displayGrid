@@ -6,8 +6,26 @@ body {
   background: #23475b;
   color: white;
   padding: 32px 15px;
+  display: grid;
+  grid-template-columns: minmax(auto,1024px);
+  justify-content: center;
+}
+.hero-container{
+  display: grid;
+  grid-template-columns: 70px 1fr 320px;
+  grid-template-areas:  "badge  tittle        form"
+                        ".      description   form"
+                        ".      countdown     form"; /* el punto representa espacio en blanco */
+  grid-gap: 10px; /*para que no se me peguen los elementos */
+}
+.badge {
+  grid-area: badge;
+}
+.badge img {
+  max-width: 70px;
 }
 .tittle {
+  grid-area: tittle;
   font-size: 36px;
   font-weight: normal;
   margin: 0;
@@ -15,6 +33,7 @@ body {
   align-items: center;
 }
 .form {
+  grid-area: form;
   text-align: center;
   background: rgba(255,255,255,.7);
   border-radius: 9px;
@@ -41,6 +60,42 @@ body {
   border-radius: 5px;
   border: none;
   font-size: 16px;
-  border-bottom: 5px solid #6d932b;
+  border-bottom: 1px solid #6d932b;
   display: inline-block;
+  font-weight: 300;
+}
+.countdown {
+  grid-area: countdown;
+}
+.countdown p {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 300;
+}
+.countdown span {
+  font-size: 33px;
+}
+.countdown span:after { /*pseudoelemento */
+  content: ":"; /*lo principal que deberia tener un pseudoelemento, si no lo tiene no aparece */
+  display: inline-block;
+  margin: 0 5px;
+}
+.countdown span:last-child:after{ /*al ultimo hijo, toma su despues y ocultalo */
+  display: none;
+}
+p{
+  margin: 0;
+}
+.description{
+  grid-area: description;
+}
+
+@media screen and (max-width: 768px){
+  .hero-container{
+    grid-template-columns: 70px 1fr;
+    grid-template-areas:  "badge        tittle"
+                          "description  description"
+                          "form         form" /* el punto representa espacio en blanco */
+                          "countdown    countdown"; /* el punto representa espacio en blanco */
+  }
 }
